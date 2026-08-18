@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="O Código do Silêncio — um livro-game de suspense em que você aprende Java e o seu código pode decidir o caminho da história.">
+<meta property="og:title" content="O Código do Silêncio — O Notebook">
+<meta property="og:description" content="Você não apenas lê. Você programa. E o seu código decide o caminho.">
+<meta property="og:type" content="website">
+<title>O Código do Silêncio — O Notebook</title>
+<style>
+:root{
+  --bg:#05070a;--panel:#0b1015;--panel2:#0e151c;--text:#eef3f5;--muted:#91a0aa;
+  --green:#58f39b;--green2:#21c875;--line:rgba(88,243,155,.18);--red:#ff5d69;
+  --max:1180px;--shadow:0 20px 70px rgba(0,0,0,.45)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+radial-gradient(circle at 80% 10%,rgba(26,111,75,.12),transparent 28rem),
+radial-gradient(circle at 10% 35%,rgba(30,68,110,.12),transparent 30rem),var(--bg);
+color:var(--text);line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:45px 45px}
+a{color:inherit;text-decoration:none}.container{width:min(calc(100% - 40px),var(--max));margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(5,7,10,.76);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:.08em;font-size:.84rem}.logo span{color:var(--green)}
+.navlinks{display:flex;gap:28px;color:#aebac1;font-size:.86rem}.navlinks a:hover{color:var(--green)}
+.navcta{border:1px solid var(--line);padding:9px 15px;border-radius:8px;color:var(--green);font-weight:700;font-size:.8rem}
+.hero{min-height:100vh;padding:145px 0 80px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:65px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 16px var(--green);animation:pulse 1.8s infinite}
+h1{font-size:clamp(2.8rem,6vw,5.7rem);line-height:.98;letter-spacing:-.055em;max-width:760px}
+h1 em{font-style:normal;color:var(--green)}
+.hero p{font-size:1.15rem;color:#aeb9bf;max-width:650px;margin:28px 0}
+.tagline{font-size:1.05rem;color:#fff!important;font-weight:700;line-height:1.5;border-left:2px solid var(--green);padding-left:16px}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:9px;font-weight:800;font-size:.85rem;letter-spacing:.02em;transition:.25s}
+.btn-primary{background:var(--green);color:#031009;box-shadow:0 0 35px rgba(88,243,155,.14)}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 45px rgba(88,243,155,.28)}
+.btn-secondary{border:1px solid rgba(255,255,255,.14);color:#d8e0e4}.btn-secondary:hover{border-color:var(--green);color:var(--green)}
+.terminal{background:#070b0e;border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;transform:perspective(1000px) rotateY(-3deg)}
+.termbar{height:42px;background:#11171c;display:flex;align-items:center;gap:7px;padding:0 15px;border-bottom:1px solid rgba(255,255,255,.06)}
+.termbar i{width:9px;height:9px;border-radius:50%;background:#44515a}.term-title{margin-left:8px;color:#69777f;font:12px ui-monospace,SFMono-Regular,monospace}
+.term-body{padding:25px;min-height:390px;font:14px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace;color:#9eb0b8}
+.term-body .g{color:var(--green)}.term-body .w{color:#e9eff1}.term-body .dim{color:#65747d}.term-body .cursor{display:inline-block;width:8px;height:16px;background:var(--green);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+.badge{display:inline-block;margin-top:20px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--green);font-size:.68rem;letter-spacing:.1em;font-weight:800}
+section{padding:105px 0}.section-head{max-width:760px;margin-bottom:48px}.kicker{color:var(--green);font-size:.7rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}.section-head h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.04em}.section-head p{color:var(--muted);margin-top:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:28px;transition:.25s}.card:hover{transform:translateY(-5px);border-color:var(--line)}.num{color:var(--green);font:700 .72rem ui-monospace;margin-bottom:30px}.card h3{font-size:1.15rem;margin-bottom:8px}.card p{color:var(--muted);font-size:.92rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}.steps:before{content:"";position:absolute;left:8%;right:8%;top:31px;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}.step{text-align:center;position:relative;padding:0 16px}.stepno{width:62px;height:62px;border:1px solid var(--line);background:var(--bg);border-radius:50%;display:grid;place-items:center;margin:0 auto 22px;color:var(--green);font:800 14px ui-monospace;position:relative;z-index:2}.step h3{font-size:1rem}.step p{color:var(--muted);font-size:.86rem;margin-top:7px}
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:15px;overflow:hidden}.compare article{background:var(--panel);padding:34px}.compare article:last-child{background:linear-gradient(145deg,#0b1712,#09110e)}.compare h3{margin:10px 0}.compare p{color:var(--muted);font-size:.9rem}.highlight{color:var(--green);font-weight:800}
+.learning{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}.terminal.small .term-body{min-height:270px}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.chip{border:1px solid rgba(255,255,255,.1);background:#0a0f13;padding:10px 13px;border-radius:8px;color:#cbd5da;font:12px ui-monospace}.chip:before{content:"✓";color:var(--green);margin-right:8px}
+.story{border:1px solid rgba(255,255,255,.09);border-radius:18px;background:linear-gradient(120deg,rgba(88,243,155,.055),rgba(255,255,255,.018));padding:45px;position:relative;overflow:hidden}.story:after{content:"CLASSIFIED";position:absolute;right:-30px;top:30px;transform:rotate(8deg);font-size:4rem;font-weight:900;color:rgba(255,255,255,.025)}.story h3{font-size:2rem}.story p{color:#adb8bd;max-width:800px;margin-top:20px;font-size:1.02rem}
+.codegrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}.codecard{background:#070b0e;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}.codehead{padding:11px 15px;background:#10161b;color:#73818a;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}.code{padding:18px;font:12px/1.8 ui-monospace;color:#aebdc4;min-height:170px}.code .g{color:var(--green)}.code .y{color:#e7cf76}.code .r{color:#ff7c86}
+.episodes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.episode{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:22px;background:#090e12}.episode.available{border-color:var(--line);box-shadow:inset 0 0 40px rgba(88,243,155,.025)}.episode span{font:700 .68rem ui-monospace;color:#71808a}.episode h3{margin-top:15px}.status{margin-top:20px;color:var(--green);font-size:.7rem;font-weight:800;text-transform:uppercase}
+.buy{display:grid;grid-template-columns:1fr 400px;gap:50px;align-items:center}.pricebox{background:linear-gradient(145deg,#0c1712,#0a0f12);border:1px solid var(--line);border-radius:18px;padding:32px;box-shadow:var(--shadow)}.pricebox .small{color:#7e8b92;font-size:.75rem}.price{font-size:2.7rem;font-weight:900;margin:7px 0 20px}.pricebox ul{list-style:none;color:#b4c0c5;font-size:.88rem;margin-bottom:25px}.pricebox li{margin:8px 0}.pricebox li:before{content:"✓";color:var(--green);margin-right:8px}
+.formbox{margin-top:25px;display:flex;gap:10px;max-width:620px}.formbox input{flex:1;background:#080d11;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:14px}.formbox input:focus{outline:1px solid var(--green);border-color:var(--green)}.formmsg{font-size:.78rem;color:var(--green);margin-top:10px;min-height:20px}
+details{border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0}summary{cursor:pointer;font-weight:700}details p{color:var(--muted);padding-top:12px;max-width:800px}
+footer{border-top:1px solid rgba(255,255,255,.07);padding:45px 0;color:#6f7c83;font-size:.78rem}.footer{display:flex;justify-content:space-between;gap:25px}.footer a:hover{color:var(--green)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+@keyframes pulse{50%{opacity:.45;box-shadow:0 0 4px var(--green)}}@keyframes blink{50%{opacity:0}}
+@media(max-width:900px){.hero,.learning,.buy{grid-template-columns:1fr}.hero{padding-top:125px}.terminal{transform:none}.grid3,.compare,.codegrid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr;gap:35px}.steps:before{display:none}.episodes{grid-template-columns:1fr 1fr}.navlinks{display:none}}
+@media(max-width:560px){.container{width:min(calc(100% - 28px),var(--max))}.hero{padding-top:105px}.hero p{font-size:1rem}.actions .btn{width:100%}.steps,.episodes{grid-template-columns:1fr}.story{padding:28px}.formbox{flex-direction:column}.footer{flex-direction:column}.navcta{display:none}.term-body{font-size:11px;padding:18px;min-height:330px}}
+</style>
+</head>
+<body>
+<nav><div class="container nav">
+  <a class="logo" href="#">O CÓDIGO <span>DO SILÊNCIO</span></a>
+  <div class="navlinks"><a href="#como">Como funciona</a><a href="#episodio">Episódio 1</a><a href="#faq">FAQ</a></div>
+  <a class="navcta" href="#comprar">COMEÇAR</a>
+</div></nav>
+
+<main>
+<section class="hero container">
+  <div class="reveal">
+    <div class="eyebrow"><i class="dot"></i> Episódio 01 — O Notebook</div>
+    <h1>E se o próximo capítulo dependesse do <em>código</em> que você escreveu?</h1>
+    <p>Um livro-game de suspense em que você aprende Java enquanto investiga o desaparecimento de um programador.</p>
+    <p class="tagline">Você não apenas lê.<br>Você programa.<br>E o seu código decide o caminho.</p>
+    <div class="actions"><a class="btn btn-primary" href="#comprar">QUERO COMEÇAR A INVESTIGAÇÃO →</a><a class="btn btn-secondary" href="#como">COMO FUNCIONA?</a></div>
+  </div>
+  <div class="terminal reveal">
+    <div class="termbar"><i></i><i></i><i></i><span class="term-title">investigacao@notebook:~/silencio</span></div>
+    <div class="term-body">
+      <div class="dim">user@notebook:~$ javac Investigacao.java</div>
+      <div class="g">compilação concluída.</div><br>
+      <div class="dim">user@notebook:~$ java Investigacao</div>
+      <div class="w">Registro de acesso:</div>
+      <div class="w">notebook ativado.</div><br>
+      <div class="w">Nome registrado: <span class="g">Ricardo</span></div><br>
+      <div class="g">[ DECISÃO DO CÓDIGO ]</div>
+      <div class="dim">A saída do programa determina a próxima seção.</div><br>
+      <span class="g">user@notebook:~$ </span><span class="cursor"></span>
+      <div class="badge">ARQUIVO: CONFIDENCIAL</div>
+    </div>
+  </div>
+</section>
+
+<section id="como"><div class="container">
+  <div class="section-head reveal"><div class="kicker">A experiência</div><h2>Você não está apenas lendo um livro. Está entrando na investigação.</h2><p>Em O Código do Silêncio, a programação deixa de ser apenas algo para estudar e passa a fazer parte da própria história.</p></div>
+  <div class="grid3">
+    <article class="card reveal"><div class="num">01 / LEIA</div><h3>Descubra as pistas</h3><p>Acompanhe personagens, arquivos, registros e acontecimentos enquanto o mistério se revela.</p></article>
+    <article class="card reveal"><div class="num">02 / PROGRAME</div><h3>Escreva o código</h3><p>Crie, compile e execute programas Java para avançar na investigação.</p></article>
+    <article class="card reveal"><div class="num">03 / DESCUBRA</div><h3>Siga o resultado</h3><p>A saída do seu programa pode determinar para qual seção da história você deve ir.</p></article>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="kicker">O mecanismo</div><h2>História → Código → Terminal → Decisão → Novo caminho</h2><p>O aprendizado acontece dentro da investigação, e a investigação reage ao que você programa.</p></div>
+  <div class="steps">
+    <div class="step reveal"><div class="stepno">01</div><h3>Leia a cena</h3><p>Você acompanha a investigação.</p></div>
+    <div class="step reveal"><div class="stepno">02</div><h3>Escreva</h3><p>Modifique ou crie o código apresentado.</p></div>
+    <div class="step reveal"><div class="stepno">03</div><h3>Execute</h3><p>Compile e rode o programa no computador.</p></div>
+    <div class="step reveal"><div class="stepno">04</div><h3>Siga o resultado</h3><p>A saída indica o próximo trecho da história.</p></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="kicker">Literatura + programação</div><h2>E se aprender programação pudesse ser parte de uma história?</h2></div>
+  <div class="compare reveal">
+    <article><span class="kicker">Livro tradicional</span><h3>Você lê.</h3><p>O próximo capítulo já está definido.</p></article>
+    <article><span class="kicker">Curso tradicional</span><h3>Você pratica.</h3><p>Aprende um conceito e resolve exercícios.</p></article>
+    <article><span class="kicker">O Código do Silêncio</span><h3>Você <span class="highlight">programa</span>.</h3><p>Aprende o conceito, executa o código e o resultado decide o próximo trecho.</p></article>
+  </div>
+</div></section>
+
+<section><div class="container learning">
+  <div class="reveal"><div class="kicker">Para iniciantes</div><h2>Nunca programou? Melhor ainda.</h2><p style="color:var(--muted);margin-top:18px">O Episódio 1 foi pensado para quem está começando. Você é conduzido pela preparação do computador e pelos primeiros códigos em Java.</p><div class="chips">
+    <span class="chip">Java</span><span class="chip">Classes</span><span class="chip">Objetos</span><span class="chip">Atributos</span><span class="chip">Métodos</span><span class="chip">Construtores</span><span class="chip">private</span><span class="chip">this</span><span class="chip">Getters</span><span class="chip">Compilação</span><span class="chip">Execução</span><span class="chip">Erros</span>
+  </div></div>
+  <div class="terminal small reveal"><div class="termbar"><i></i><i></i><i></i><span class="term-title">primeiro_programa.java</span></div><div class="term-body">
+    <div class="g">public class Investigacao {</div>
+    <div>&nbsp;&nbsp;public static void main(String[] args) {</div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(</div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="w">"Registro de acesso: notebook ativado."</span></div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;);</div>
+    <div>&nbsp;&nbsp;}</div>
+    <div class="g">}</div><br>
+    <div class="dim">// Compilar. Executar. Descobrir.</div>
+  </div></div>
+</div></section>
+
+<section id="episodio"><div class="container">
+  <div class="story reveal"><div class="kicker">Episódio 01</div><h3>O NOTEBOOK</h3><p>Um programador desapareceu. A polícia encontrou poucas pistas. Um notebook ficou para trás. Dentro dele existem arquivos Java, registros e fragmentos de código. Você nunca programou antes. Mas alguém parece ter deixado tudo preparado para que você chegasse exatamente ali.</p><p>Agora você precisa reconstruir os últimos passos daquele homem — e talvez descobrir por que o código parece saber coisas que ainda não aconteceram.</p></div>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="kicker">Dentro do episódio</div><h2>O código também é uma pista.</h2><p>Veja o tipo de material que faz parte da experiência.</p></div>
+  <div class="codegrid">
+    <div class="codecard reveal"><div class="codehead">Código Java</div><div class="code"><span class="g">public class Investigacao {</span><br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="y">"notebook ativado."</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>&nbsp;&nbsp;}<br><span class="g">}</span></div></div>
+    <div class="codecard reveal"><div class="codehead">Terminal</div><div class="code"><span class="g">&gt; javac Investigacao.java</span><br><span class="g">compilação concluída.</span><br><br>Registro de acesso:<br><span class="y">notebook ativado.</span></div></div>
+    <div class="codecard reveal"><div class="codehead">Decisão do código</div><div class="code"><span class="g">DECISÃO DO CÓDIGO</span><br><br>Nome: null → Seção 11<br>Nome: Ricardo → Seção 4<br><br><span class="dim">Seu resultado. Seu caminho.</span></div></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="kicker">A regra do jogo</div><h2>Aqui, até o erro pode esconder uma pista.</h2><p>Em “O Código do Silêncio”, o erro pode fazer parte da experiência. Seu código pode levar você para outro lugar da história.</p></div>
+  <div class="story reveal" style="text-align:center"><h3 style="color:var(--green)">Seu código não apenas resolve o problema.<br>Ele pode mudar a história.</h3></div>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="kicker">A série</div><h2>8 episódios. Uma investigação.</h2><p>Os episódios são vendidos separadamente.</p></div>
+  <div class="episodes">
+    <div class="episode available reveal"><span>EPISÓDIO 01</span><h3>O Notebook</h3><div class="status">● Disponível</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 02</span><h3>O Cofre</h3><div class="status">Disponibilidade a confirmar</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 03</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 04</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 05</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 06</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 07</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 08</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="kicker">Entre para a investigação</div><h2>Receba novidades da série.</h2><p>Deixe seu nome e melhor e-mail para receber novidades sobre O Código do Silêncio e novos episódios.</p></div>
+  <form class="formbox reveal" id="leadForm"><input id="name" type="text" placeholder="Seu nome" required><input id="email" type="email" placeholder="Seu melhor e-mail" required><button class="btn btn-primary" type="submit">QUERO RECEBER</button></form>
+  <div class="formmsg" id="formMsg"></div>
+  <small style="display:block;color:#647178;margin-top:5px">Ao enviar, você concorda em receber comunicações sobre a série. <a href="#privacidade" style="text-decoration:underline">Política de Privacidade</a>.</small>
+</div></section>
+
+<section id="comprar"><div class="container buy">
+  <div class="reveal"><div class="kicker">Comece agora</div><h2 style="font-size:clamp(2.3rem,5vw,4.2rem);line-height:1.02">Sua investigação começa com <span style="color:var(--green)">O Notebook.</span></h2><p style="color:var(--muted);margin:22px 0">Um livro-game de suspense para aprender Java enquanto você investiga o desaparecimento de um programador.</p></div>
+  <div class="pricebox reveal"><div class="small">O CÓDIGO DO SILÊNCIO</div><h3>EPISÓDIO 1 — O NOTEBOOK</h3><div class="price">[PREÇO]</div><ul><li>Livro-game de suspense</li><li>Experiência prática com Java</li><li>Decisões baseadas no código</li><li>Checkout seguro pela Kiwify</li></ul><a class="btn btn-primary" style="width:100%" id="buyBtn" href="#" target="_blank" rel="noopener">QUERO COMPRAR O EPISÓDIO 1 →</a><div style="font-size:.68rem;color:#66747b;margin-top:10px;text-align:center">Configure o link da Kiwify no JavaScript deste arquivo.</div></div>
+</div></section>
+
+<section id="faq"><div class="container">
+  <div class="section-head reveal"><div class="kicker">FAQ</div><h2>Perguntas frequentes</h2></div>
+  <div class="reveal">
+    <details><summary>Preciso saber programar?</summary><p>Não. O Episódio 1 foi pensado para iniciantes e explica os primeiros passos.</p></details>
+    <details><summary>Preciso conhecer Java?</summary><p>Não. A experiência conduz o leitor pelos primeiros conceitos apresentados no episódio.</p></details>
+    <details><summary>O livro é realmente interativo?</summary><p>Sim. A narrativa utiliza decisões baseadas no resultado do código executado pelo leitor.</p></details>
+    <details><summary>Preciso instalar alguma coisa?</summary><p>Sim. O Episódio 1 orienta a preparação do computador e a instalação do Java.</p></details>
+    <details><summary>Preciso de um computador?</summary><p>Sim, porque parte da experiência envolve escrever, compilar e executar os códigos.</p></details>
+    <details><summary>Existem caminhos diferentes na história?</summary><p>Sim. O resultado do código pode direcionar o leitor para seções diferentes.</p></details>
+    <details><summary>Quantos episódios existem?</summary><p>A série possui 8 episódios, vendidos separadamente.</p></details>
+    <details><summary>Onde faço o pagamento?</summary><p>O checkout será realizado pela Kiwify.</p></details>
+  </div>
+</div></section>
+</main>
+
+<footer id="privacidade"><div class="container footer"><div><strong style="color:#b9c4c9">O Código do Silêncio</strong><br>© 2026. Todos os direitos reservados.</div><div>Início · Como funciona · Episódios · FAQ · Política de Privacidade · Termos de Uso</div></div></footer>
+
+<script>
+/* ================================
+   CONFIGURAÇÃO
+   Altere somente o valor abaixo
+   para colocar seu checkout Kiwify.
+================================ */
+const KIWIFY_CHECKOUT_URL = "https://SEU-LINK-KIWIFY-AQUI";
+
+const buyBtn = document.getElementById("buyBtn");
+buyBtn.href = KIWIFY_CHECKOUT_URL;
+
+document.getElementById("leadForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const msg = document.getElementById("formMsg");
+  if(!name || !email){ msg.textContent="Preencha seu nome e e-mail."; return; }
+
+  /*
+    LANDING PAGE ESTÁTICA:
+    Este exemplo valida os dados no navegador, mas NÃO salva
+    credenciais nem envia dados para um servidor.
+    Para captar leads de verdade, conecte este formulário
+    a um serviço de formulário/CRM ou endpoint seguro.
+  */
+  msg.textContent = "Cadastro recebido. Agora você faz parte da investigação.";
+  this.reset();
+});
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add("visible"); });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
