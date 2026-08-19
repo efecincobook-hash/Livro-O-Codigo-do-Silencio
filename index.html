@@ -53,7 +53,11 @@ section{padding:105px 0}.section-head{max-width:760px;margin-bottom:48px}.kicker
 .codegrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}.codecard{background:#070b0e;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}.codehead{padding:11px 15px;background:#10161b;color:#73818a;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}.code{padding:18px;font:12px/1.8 ui-monospace;color:#aebdc4;min-height:170px}.code .g{color:var(--green)}.code .y{color:#e7cf76}.code .r{color:#ff7c86}
 .episodes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.episode{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:22px;background:#090e12}.episode.available{border-color:var(--line);box-shadow:inset 0 0 40px rgba(88,243,155,.025)}.episode span{font:700 .68rem ui-monospace;color:#71808a}.episode h3{margin-top:15px}.status{margin-top:20px;color:var(--green);font-size:.7rem;font-weight:800;text-transform:uppercase}
 .buy{display:grid;grid-template-columns:1fr 400px;gap:50px;align-items:center}.pricebox{background:linear-gradient(145deg,#0c1712,#0a0f12);border:1px solid var(--line);border-radius:18px;padding:32px;box-shadow:var(--shadow)}.pricebox .small{color:#7e8b92;font-size:.75rem}.price{font-size:2.7rem;font-weight:900;margin:7px 0 20px}.pricebox ul{list-style:none;color:#b4c0c5;font-size:.88rem;margin-bottom:25px}.pricebox li{margin:8px 0}.pricebox li:before{content:"✓";color:var(--green);margin-right:8px}
-.formbox{margin-top:25px;display:flex;gap:10px;max-width:620px}.formbox input{flex:1;background:#080d11;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:14px}.formbox input:focus{outline:1px solid var(--green);border-color:var(--green)}.formmsg{font-size:.78rem;color:var(--green);margin-top:10px;min-height:20px}
+.formbox{margin-top:25px;display:flex;gap:10px;max-width:620px}.formbox input{flex:1;background:#080d11;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:14px}.formbox input:focus{outline:1px solid var(--green);border-color:var(--green)}.formmsg{font-size:.78rem;color:var(--green);margin-top:10px;min-height:20px}.formmsg.err{color:var(--red)}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+.consent{display:flex;gap:9px;align-items:flex-start;max-width:620px;margin-top:14px;color:#8d9aa2;font-size:.78rem;line-height:1.5;cursor:pointer}
+.consent input{accent-color:var(--green);margin-top:3px;flex:none}.consent a{color:var(--green);text-decoration:underline}
+button[disabled]{opacity:.55;pointer-events:none}
 details{border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0}summary{cursor:pointer;font-weight:700}details p{color:var(--muted);padding-top:12px;max-width:800px}
 footer{border-top:1px solid rgba(255,255,255,.07);padding:45px 0;color:#6f7c83;font-size:.78rem}.footer{display:flex;justify-content:space-between;gap:25px}.footer a:hover{color:var(--green)}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
@@ -108,7 +112,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:45px 0;color:#6f7c83;f
   <div class="section-head reveal"><div class="kicker">O mecanismo</div><h2>História → Código → Terminal → Decisão → Novo caminho</h2><p>O aprendizado acontece dentro da investigação, e a investigação reage ao que você programa.</p></div>
   <div class="steps">
     <div class="step reveal"><div class="stepno">01</div><h3>Leia a cena</h3><p>Você acompanha a investigação.</p></div>
-    <div class="step reveal"><div class="stepno">02</div><h3>Escreva</h3><p>Modifique ou crie o código apresentado.</p></div>
+    <div class="step reveal"><div class="stepno">02</div><h3>Escreva</h3><p>Digite o código apresentado.</p></div>
     <div class="step reveal"><div class="stepno">03</div><h3>Execute</h3><p>Compile e rode o programa no computador.</p></div>
     <div class="step reveal"><div class="stepno">04</div><h3>Siga o resultado</h3><p>A saída indica o próximo trecho da história.</p></div>
   </div>
@@ -162,20 +166,32 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:45px 0;color:#6f7c83;f
   <div class="episodes">
     <div class="episode available reveal"><span>EPISÓDIO 01</span><h3>O Notebook</h3><div class="status">● Disponível</div></div>
     <div class="episode reveal"><span>EPISÓDIO 02</span><h3>O Cofre</h3><div class="status">Disponibilidade a confirmar</div></div>
-    <div class="episode reveal"><span>EPISÓDIO 03</span><h3>[Título]</h3><div class="status">Em breve</div></div>
-    <div class="episode reveal"><span>EPISÓDIO 04</span><h3>[Título]</h3><div class="status">Em breve</div></div>
-    <div class="episode reveal"><span>EPISÓDIO 05</span><h3>[Título]</h3><div class="status">Em breve</div></div>
-    <div class="episode reveal"><span>EPISÓDIO 06</span><h3>[Título]</h3><div class="status">Em breve</div></div>
-    <div class="episode reveal"><span>EPISÓDIO 07</span><h3>[Título]</h3><div class="status">Em breve</div></div>
-    <div class="episode reveal"><span>EPISÓDIO 08</span><h3>[Título]</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 03</span><h3>A Organização</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 04</span><h3>A Sala dos Espelhos</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 05</span><h3>O Pacto</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 06</span><h3>A Queda do Sistema</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 07</span><h3>O Arquivo-Cofre</h3><div class="status">Em breve</div></div>
+    <div class="episode reveal"><span>EPISÓDIO 08</span><h3>A Revelação</h3><div class="status">Em breve</div></div>
   </div>
 </div></section>
 
 <section><div class="container">
   <div class="section-head reveal"><div class="kicker">Entre para a investigação</div><h2>Receba novidades da série.</h2><p>Deixe seu nome e melhor e-mail para receber novidades sobre O Código do Silêncio e novos episódios.</p></div>
-  <form class="formbox reveal" id="leadForm"><input id="name" type="text" placeholder="Seu nome" required><input id="email" type="email" placeholder="Seu melhor e-mail" required><button class="btn btn-primary" type="submit">QUERO RECEBER</button></form>
-  <div class="formmsg" id="formMsg"></div>
-  <small style="display:block;color:#647178;margin-top:5px">Ao enviar, você concorda em receber comunicações sobre a série. <a href="#privacidade" style="text-decoration:underline">Política de Privacidade</a>.</small>
+  <form class="formbox reveal" id="leadForm" novalidate>
+    <input id="name" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
+    <input id="email" name="email" type="email" placeholder="Seu melhor e-mail" autocomplete="email" required>
+    <!-- honeypot anti-spam: invisível para pessoas, atrativo para bots -->
+    <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+    <button class="btn btn-primary" id="leadBtn" type="submit">QUERO RECEBER</button>
+  </form>
+  <label class="consent reveal">
+    <input id="consent" type="checkbox" required>
+    <span>Autorizo o armazenamento do meu nome e e-mail e o envio de comunicações sobre a série
+    "O Código do Silêncio", conforme a
+    <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+  </label>
+  <div class="formmsg" id="formMsg" role="status" aria-live="polite"></div>
+  <small style="display:block;color:#647178;margin-top:5px">Você pode cancelar o recebimento a qualquer momento.</small>
 </div></section>
 
 <section id="comprar"><div class="container buy">
@@ -199,7 +215,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:45px 0;color:#6f7c83;f
 </div></section>
 </main>
 
-<footer id="privacidade"><div class="container footer"><div><strong style="color:#b9c4c9">O Código do Silêncio</strong><br>© 2026. Todos os direitos reservados.</div><div>Início · Como funciona · Episódios · FAQ · Política de Privacidade · Termos de Uso</div></div></footer>
+<footer id="privacidade"><div class="container footer"><div><strong style="color:#b9c4c9">O Código do Silêncio</strong><br>© 2026. Todos os direitos reservados.</div><div><a href="#">Início</a> · <a href="#como">Como funciona</a> · <a href="#episodio">Episódios</a> · <a href="#faq">FAQ</a> · <a href="politica-de-privacidade.html">Política de Privacidade</a></div></div></footer>
 
 <script>
 /* ================================
@@ -209,25 +225,89 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:45px 0;color:#6f7c83;f
 ================================ */
 const KIWIFY_CHECKOUT_URL = "https://pay.kiwify.com.br/7QrfdUD";
 
+/* URL do App da Web do Google Apps Script (termina em /exec). */
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIpD7Sz1WKTmxFLFW9ui1ZkE0Qcgrf7lL-P-hbuJZnO_bO4ASPh-x78bWRuJHJiSV-/exec";
+
+/* Deve ser idêntico ao SHARED_TOKEN do Code.gs. */
+const LEAD_TOKEN = "1a2c40ff7b88353fbcc01b6334a91554d57b47e8";
+
 const buyBtn = document.getElementById("buyBtn");
 buyBtn.href = KIWIFY_CHECKOUT_URL;
 
-document.getElementById("leadForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const msg = document.getElementById("formMsg");
-  if(!name || !email){ msg.textContent="Preencha seu nome e e-mail."; return; }
+/* ---------- Captura de leads → Google Sheets ---------- */
+const form    = document.getElementById("leadForm");
+const msg     = document.getElementById("formMsg");
+const leadBtn = document.getElementById("leadBtn");
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  /*
-    LANDING PAGE ESTÁTICA:
-    Este exemplo valida os dados no navegador, mas NÃO salva
-    credenciais nem envia dados para um servidor.
-    Para captar leads de verdade, conecte este formulário
-    a um serviço de formulário/CRM ou endpoint seguro.
-  */
-  msg.textContent = "Cadastro recebido. Agora você faz parte da investigação.";
-  this.reset();
+function setMsg(text, isError){
+  msg.textContent = text;
+  msg.classList.toggle("err", !!isError);
+}
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const nome    = document.getElementById("name").value.trim();
+  const email   = document.getElementById("email").value.trim();
+  const consent = document.getElementById("consent").checked;
+  const website = document.getElementById("website").value;
+
+  if(!nome){                 setMsg("Informe seu nome.", true); return; }
+  if(!EMAIL_RE.test(email)){ setMsg("Informe um e-mail válido.", true); return; }
+  if(!consent){              setMsg("É necessário aceitar a Política de Privacidade.", true); return; }
+  if(website){               return; }  // bot: descarta em silêncio
+
+  const qs = new URLSearchParams(location.search);
+  const dados = new URLSearchParams({
+    token:         LEAD_TOKEN,
+    nome:          nome,
+    email:         email,
+    website:       website,
+    consentimento: "true",
+    origem:        location.href,
+    utm_source:    qs.get("utm_source")   || "",
+    utm_medium:    qs.get("utm_medium")   || "",
+    utm_campaign:  qs.get("utm_campaign") || "",
+    user_agent:    navigator.userAgent
+  });
+
+  leadBtn.disabled = true;
+  setMsg("Enviando...", false);
+
+  try{
+    /* Content-Type de "requisição simples": não dispara preflight CORS,
+       que o Apps Script não responde. */
+    const resp = await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: dados.toString(),
+      redirect: "follow"
+    });
+    const out = await resp.json();
+    if(out.status !== "ok") throw new Error(out.message || "falha");
+
+    setMsg("Cadastro recebido. Agora você faz parte da investigação.", false);
+    form.reset();
+    document.getElementById("consent").checked = false;
+  }catch(err){
+    /* Plano B: envio sem leitura de resposta (opaco), caso o CORS falhe. */
+    try{
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: dados.toString()
+      });
+      setMsg("Cadastro recebido. Agora você faz parte da investigação.", false);
+      form.reset();
+      document.getElementById("consent").checked = false;
+    }catch(err2){
+      setMsg("Não foi possível enviar agora. Tente novamente em instantes.", true);
+    }
+  }finally{
+    leadBtn.disabled = false;
+  }
 });
 
 const observer = new IntersectionObserver((entries)=>{
